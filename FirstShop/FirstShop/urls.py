@@ -16,8 +16,18 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import url
+from django.contrib import admin
+from django.views.generic import TemplateView
+from apps.auth import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apps.orders/', include('apps.orders.urls')),
+    url(r'^admin/', admin.site.urls),
+    url(r'^$', TemplateView.as_view(template_name='index.html')),
+    url(r'^register/$', views.RegisterFormView.as_view()),
+    url(r'^login/$', views.LoginFormView.as_view()),
+    url(r'^logout/$', views.LogoutView.as_view()),
+
 ]
