@@ -5,9 +5,11 @@
   </head>
   <body>
     <form action="" method="post">
+
       {% csrf_token %}
       {{ form.as_p }}
       <button type="submit">Войти</button>
+      <input type="button" value="Сбросить пароль" onClick='location.href="http://127.0.0.1:8000/password_reset/"'>
     </form>
   </body>
 </html>

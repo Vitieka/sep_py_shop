@@ -1,7 +1,7 @@
 from django.http import HttpResponseRedirect
 from django.views.generic.base import View
 from django.views.generic.edit import FormView
-from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
+from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordChangeForm
 from django.contrib.auth import login, logout
 from .forms import MyForm
 

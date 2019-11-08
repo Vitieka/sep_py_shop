@@ -24,9 +24,10 @@ from apps.auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apps.orders/', include('apps.orders.urls')),
-    url(r'^admin/', admin.site.urls),
-    url(r'^$', TemplateView.as_view(template_name='index.html')),
-    url(r'^register/$', views.RegisterFormView.as_view()),
-    url(r'^login/$', views.LoginFormView.as_view()),
-    url(r'^logout/$', views.LogoutView.as_view()),
+    path(r'^admin/', admin.site.urls),
+    path(r'^$', TemplateView.as_view(template_name='index.html')),
+    path(r'^register/$', views.RegisterFormView.as_view()),
+    path(r'^login/$', views.LoginFormView.as_view()),
+    path(r'^logout/$', views.LogoutView.as_view()),
+    path(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
 ]
