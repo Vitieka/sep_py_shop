@@ -14,9 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from django.contrib import admin
+
 from django.urls import path, include
-from django.conf.urls import url
 from django.contrib import admin
 from django.views.generic import TemplateView
 from apps.auth import views
@@ -24,10 +23,10 @@ from apps.auth import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('apps.orders/', include('apps.orders.urls')),
-    path(r'^admin/', admin.site.urls),
-    path(r'^$', TemplateView.as_view(template_name='index.html')),
-    path(r'^register/$', views.RegisterFormView.as_view()),
-    path(r'^login/$', views.LoginFormView.as_view()),
-    path(r'^logout/$', views.LogoutView.as_view()),
-    path(r'^jet/', include('jet.urls', 'jet')),  # Django JET URLS
+    path('admin/', admin.site.urls),
+    path('', TemplateView.as_view(template_name='index.html')),
+    path('register/', views.RegisterFormView.as_view()),
+    path('login/', views.LoginFormView.as_view()),
+    path('logout/', views.LogoutView.as_view()),
+    path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
 ]
